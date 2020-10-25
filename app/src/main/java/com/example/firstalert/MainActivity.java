@@ -1,10 +1,12 @@
 package com.example.firstalert;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,10 @@ import android.widget.TextView;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
 import com.esri.arcgisruntime.mapping.view.MapView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
 
         setInitialFragment();
         incident = new Incident();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("common")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Log.e("firebase-test", "task was "+task.isSuccessful());
+                    }
+                });
+        Log.e("firebase-test", FirebaseInstanceId.getInstance().getToken());
     }
 
     public void setInitialFragment() {
