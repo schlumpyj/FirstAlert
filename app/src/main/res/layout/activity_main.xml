@@ -43,7 +43,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recent Events"
+        android:text="Active Emergencies"
         android:id="@+id/recent_events"
         android:textSize="24dp"
         android:layout_marginTop="34dp"
