@@ -2,7 +2,17 @@ package com.example.firstalert.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Urgent{
+import java.io.Serializable;
+
+public class Urgent implements Serializable {
     @JsonProperty("BOOL")
-    public boolean bOOL;
+    private boolean bOOL;
+
+    public void setbOOL(boolean bOOL) {
+        this.bOOL = bOOL;
+    }
+
+    public boolean getbOOL() {
+        return bOOL;
+    }
 }

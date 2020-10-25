@@ -2,7 +2,17 @@ package com.example.firstalert.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Long{
+import java.io.Serializable;
+
+public class Long implements Serializable {
     @JsonProperty("S")
-    public String s;
+    private String s;
+
+    public String getS() {
+        return s;
+    }
+
+    public void setS(String s) {
+        this.s = s;
+    }
 }

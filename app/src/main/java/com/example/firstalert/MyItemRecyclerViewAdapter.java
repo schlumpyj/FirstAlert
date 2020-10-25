@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.firstalert.dummy.DummyContent.DummyItem;
@@ -50,8 +51,16 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText("1");
-        holder.mContentView.setText(mValues.get(position).caller.s);
+        holder.mContentView.setText(mValues.get(position).getCaller().getS());
+        holder.notes.setText("Notes: "+mValues.get(position).getNotes().getS());
+
+        int fire_vis = mValues.get(position).getFire_dept().getbOOL() ? View.VISIBLE : View.INVISIBLE;
+        int police_vis = mValues.get(position).getPolice_dept().getbOOL() ? View.VISIBLE : View.INVISIBLE;
+        int emt_vis = mValues.get(position).getEmt_dept().getbOOL() ? View.VISIBLE : View.INVISIBLE;
+
+        holder.fire.setVisibility(fire_vis);
+        holder.police.setVisibility(police_vis);
+        holder.emt.setVisibility(emt_vis);
     }
 
     @Override
@@ -61,15 +70,21 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
         public final TextView mContentView;
+        public final TextView notes;
         public Item mItem;
+
+        public final ImageView fire, emt, police;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
+            notes = view.findViewById(R.id.brief_notes);
             mContentView = (TextView) view.findViewById(R.id.content);
+
+            fire = view.findViewById(R.id.fire_icon);
+            police = view.findViewById(R.id.police_icon);
+            emt = view.findViewById(R.id.emt_icon);
         }
 
         @Override

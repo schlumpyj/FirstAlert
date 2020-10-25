@@ -3,84 +3,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Incident">
+    tools:context=".Incident"
+    android:layout_marginTop="15dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="2"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxHeight="400dp"
-            android:id="@+id/incidentImage"
-            android:layout_weight="1">
-
-        </ImageView>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:weightSum="2"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:id="@+id/caller"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:id="@+id/notes"/>
+                android:layout_alignParentTop="true"
+                android:maxHeight="400dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:id="@+id/incidentImage">
+            </ImageView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_below="@+id/incidentImage"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="viewEnd"
-                    android:text="Fire"
-                    android:clickable="false"
-                    android:id="@+id/fire"/>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="viewEnd"
-                    android:text="EMT"
-                    android:clickable="false"
-                    android:id="@+id/emt"/>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="viewEnd"
-                    android:text="Police"
-                    android:clickable="false"
-                    android:id="@+id/police"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewEnd"
+                            android:text="Fire"
+                            android:clickable="false"
+                            android:id="@+id/fire"
+                            android:layout_margin="5dp"
+                            android:textAppearance="?attr/textAppearanceListItem"/>
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewEnd"
+                            android:text="EMT"
+                            android:layout_margin="5dp"
+                            android:clickable="false"
+                            android:id="@+id/emt"
+                            android:textAppearance="?attr/textAppearanceListItem"/>
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewEnd"
+                            android:text="Police"
+                            android:layout_margin="5dp"
+                            android:clickable="false"
+                            android:id="@+id/police"
+                            android:textAppearance="?attr/textAppearanceListItem"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewEnd"
+                        android:id="@+id/caller"
+                        android:layout_centerHorizontal="true"
+                        android:textAppearance="?attr/textAppearanceListItem"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewEnd"
+                        android:id="@+id/notes"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/caller"
+                        android:textAppearance="?attr/textAppearanceListItem"/>
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewEnd"
+                        android:text="Urgent"
+                        android:clickable="false"
+                        android:id="@+id/urgent"
+                        android:layout_below="@+id/notes"
+                        android:layout_centerHorizontal="true"
+                        android:textAppearance="?attr/textAppearanceListItem"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:text="Urgent"
-                android:clickable="false"
-                android:id="@+id/urgent"/>
-
         </LinearLayout>
-    </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/resolve_event"
+            android:backgroundTint="#409EFF"
+            android:layout_margin="5dp"
+            android:text="Mark As Resolved"/>
+    </RelativeLayout>
 
 </FrameLayout>

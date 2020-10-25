@@ -79,7 +79,7 @@ public class ItemFragment extends Fragment {
 
     private void getIncidents() {
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("https://m7u91rzkdf.execute-api.us-east-2.amazonaws.com/pre/getevents?dept=emt", new AsyncHttpResponseHandler() {
+        client.get("https://m7u91rzkdf.execute-api.us-east-2.amazonaws.com/pre/getevents", new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 // Initiated the request
